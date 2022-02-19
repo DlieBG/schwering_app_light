@@ -4,19 +4,11 @@ services:
   frontend:
     build: frontend
     container_name: schwering_app_light_frontend
+    restart: unless-stopped
     ports:
-      - 80:80
-    networks:
-      macvlan:
-        ipv4_address: 10.16.1.2
-      default:
+      - 10001:80
 
   backend:
     build: backend
     container_name: schwering_app_light_backend
     env_file: .env
-
-networks:
-  macvlan:
-    external: true
-    name: schwering_app_macvlan   
