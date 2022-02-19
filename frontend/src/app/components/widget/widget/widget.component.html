@@ -1,0 +1,7 @@
+<div class="body">
+    <h3>Favoriten</h3>
+
+    <div class="buttons" *ngIf="favorites$">
+        <button mat-raised-button *ngFor="let favorite of favorites$ | async;" (click)="switch(favorite)"><mat-icon>{{ favorite.icon }}</mat-icon> {{ favorite.name }}</button>
+    </div>
+</div>

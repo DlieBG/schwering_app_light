@@ -1,0 +1,12 @@
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { LoginService } from './services/login/login.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'frontend';
+}
