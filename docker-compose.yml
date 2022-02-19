@@ -11,4 +11,5 @@ services:
   backend:
     build: backend
     container_name: schwering_app_light_backend
+    restart: unless-stopped
     env_file: .env
