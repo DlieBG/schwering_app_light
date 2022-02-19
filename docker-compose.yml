@@ -18,10 +18,5 @@ services:
 
 networks:
   macvlan:
-    driver: macvlan
-    driver_opts:
-      parent: eth0
-    ipam:
-      config:
-        - subnet: 10.16.1.2/32
-          
+    external:
+      - name: schwering_app_macvlan   
