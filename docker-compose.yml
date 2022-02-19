@@ -18,5 +18,5 @@ services:
 
 networks:
   macvlan:
-    external:
-      - name: schwering_app_macvlan   
+    external: true
+    name: schwering_app_macvlan   
