@@ -32,3 +32,12 @@ h3 {
 mat-icon {
     margin-right: .5em;
 }
+
+.loader {
+    height: calc(100% - 32px - 0.5em);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+}
