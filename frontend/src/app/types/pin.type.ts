@@ -4,7 +4,7 @@ export interface Pins {
 
 export interface Ebene {
     ebene: string;
-    raume: Raum[];
+    raeume: Raum[];
 }
 
 export interface Raum {

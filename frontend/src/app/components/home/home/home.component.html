@@ -1,23 +1,30 @@
 <div class="body">
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
-    <p>home works!</p>
+    <h1>Steuerung</h1>
+
+    <div class="center">
+        <div class="pins" *ngIf="(pins$ | async) as pins; else loading;">
+        
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let pin of pins.pins;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{ pin.ebene }}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div>
+                        <!-- <pre>{{ pin.raeume | json }}</pre> -->
+                        <app-home-ebene-raeume [raeume]="pin.raeume"></app-home-ebene-raeume>
+                    </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+    
+        </div>
+    </div>
+
+    <ng-template #loading>
+        <div class="loader">
+            <mat-spinner color="accent" diameter="75"></mat-spinner>
+        </div>
+    </ng-template>
+    
 </div>

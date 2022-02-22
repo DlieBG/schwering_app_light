@@ -1,0 +1,13 @@
+<div class="body">
+    <div *ngIf="selectedIndex == null">
+        <button mat-stroked-button class="button-raum-select" (click)="selectedIndex = index;" *ngFor="let raum of raeume; let index = index;">{{ raum.name }}</button>
+    </div>
+
+    <mat-tab-group [selectedIndex]="selectedIndex" color="warn" *ngIf="selectedIndex != null">
+        <mat-tab [label]="raum.name" *ngFor="let raum of raeume;">
+            <div class="buttons">
+                <button mat-flat-button class="button-switch" (click)="switch(schalter)" *ngFor="let schalter of raum.schalter;">{{ schalter.name }}</button>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
