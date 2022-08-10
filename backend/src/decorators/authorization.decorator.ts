@@ -1,4 +1,4 @@
-import { createParamDecorator, ExecutionContext, UnauthorizedException } from "@nestjs/common";
+import { createParamDecorator, ExecutionContext } from "@nestjs/common";
 import axios from "axios";
 import { LoginJwt } from "src/types/login.type";
 
@@ -8,13 +8,7 @@ export const Authorization = createParamDecorator(
         let loginJwt: LoginJwt;
 
         try {
-            loginJwt = {
-                "id": "620bdb784f8e755494f81fe9",
-                "name": "Benedikt",
-                "iat": 1644999228,
-                "exp": 1739672028
-              };
-              //(await axios.get(process.env.VALIDATE_URL, { headers: { Authorization: authorizationHeader } })).data as LoginJwt;
+            loginJwt = (await axios.get(process.env.VALIDATE_URL, { headers: { Authorization: authorizationHeader } })).data as LoginJwt;
         } catch {
             ctx.switchToHttp().getResponse().status(401).send();
         }
