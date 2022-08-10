@@ -3,6 +3,11 @@
 
     <div class="buttons" *ngIf="(favorites$ | async) as favorites; else loading;">
         <button mat-raised-button *ngFor="let favorite of favorites;" (click)="switch(favorite)"><mat-icon>{{ favorite.icon }}</mat-icon> {{ favorite.name }}</button>
+    
+        <div class="no-favorites" *ngIf="favorites.length === 0">
+            <mat-icon>favorite</mat-icon>
+            <span>Keine Favoriten</span>
+        </div>
     </div>
 
     <ng-template  #loading>
