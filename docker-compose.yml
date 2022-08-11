@@ -3,7 +3,7 @@ version: '3'
 services:
   frontend:
     # build: frontend
-    image: ghcr.io/dliebg/schwering_app_light_frontend/frontend:main
+    image: ghcr.io/dliebg/schwering_app_light/frontend:main
     container_name: schwering_app_light_frontend
     restart: unless-stopped
     ports:
@@ -11,7 +11,7 @@ services:
 
   backend:
     # build: backend
-    image: ghcr.io/dliebg/schwering_app_light_frontend/backend:main
+    image: ghcr.io/dliebg/schwering_app_light/backend:main
     container_name: schwering_app_light_backend
     restart: unless-stopped
     env_file: .env
