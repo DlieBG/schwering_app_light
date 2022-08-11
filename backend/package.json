@@ -25,7 +25,7 @@
     "@nestjs/config": "2.2.0",
     "@nestjs/core": "8.3.1",
     "@nestjs/platform-express": "8.3.1",
-    "axios": "0.26.0",
+    "axios": "0.27.2",
     "mongodb": "4.8.1",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
