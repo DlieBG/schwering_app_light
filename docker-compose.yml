@@ -2,23 +2,27 @@ version: '3'
 
 services:
   frontend:
-    # build: frontend
     image: ghcr.io/dliebg/schwering_app_light/frontend:main
     container_name: schwering_app_light_frontend
     restart: unless-stopped
     ports:
       - 10001:80
+    labels:
+      - "com.centurylinklabs.watchtower.scope=schwering_app_light"
 
   backend:
-    # build: backend
     image: ghcr.io/dliebg/schwering_app_light/backend:main
     container_name: schwering_app_light_backend
     restart: unless-stopped
     env_file: .env
+    labels:
+      - "com.centurylinklabs.watchtower.scope=schwering_app_light"
 
   watchtower:
     image: containrrr/watchtower
     container_name: schwering_app_light_watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: schwering_app_light_frontend schwering_app_light_backend -i 3600
+    command: schwering_app_light_frontend schwering_app_light_backend -i 3600 --scope schwering_app_light
+    labels:
+      - "com.centurylinklabs.watchtower.scope=schwering_app_light"
